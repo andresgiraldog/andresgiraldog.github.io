@@ -585,6 +585,192 @@
             margin: 0;
         }
 
+        /* Bias Mitigation Interactive Diagram Styles */
+        .bias-mitigation-diagram {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin: 2rem 0;
+        }
+
+        .bias-diagram-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .bias-diagram-header h4 {
+            color: #667eea;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .bias-diagram-header p {
+            opacity: 0.9;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .bias-diagram-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .bias-value-statement {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .bias-value-statement h5 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+
+        .bias-value-statement p {
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .bias-strategies-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .bias-strategy-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bias-strategy-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .bias-strategy-card:hover::before,
+        .bias-strategy-card.active::before {
+            transform: scaleX(1);
+        }
+
+        .bias-strategy-card:hover,
+        .bias-strategy-card.active {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .bias-strategy-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .bias-strategy-icon {
+            width: 35px;
+            height: 35px;
+            margin-right: 0.8rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        .bias-strategy-card:nth-child(1) .bias-strategy-icon { background: #ff6b6b; }
+        .bias-strategy-card:nth-child(2) .bias-strategy-icon { background: #4ecdc4; }
+        .bias-strategy-card:nth-child(3) .bias-strategy-icon { background: #45b7d1; }
+        .bias-strategy-card:nth-child(4) .bias-strategy-icon { background: #96ceb4; }
+
+        .bias-strategy-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+
+        .bias-strategy-card.active .bias-strategy-content {
+            max-height: 400px;
+            opacity: 1;
+            margin-top: 1rem;
+        }
+
+        .bias-strategy-item {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: rgba(102, 126, 234, 0.05);
+            border-radius: 8px;
+            border-left: 3px solid #667eea;
+        }
+
+        .bias-strategy-item h6 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .bias-strategy-item p {
+            opacity: 0.9;
+            line-height: 1.5;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .bias-progress-indicator {
+            position: sticky;
+            top: 100px;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .bias-progress-text {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .bias-progress-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .bias-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #4ecdc4);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
         /* Footer */
         footer {
             text-align: center;
@@ -636,6 +822,20 @@
             
             .step-number {
                 margin-bottom: 0.5rem;
+            }
+
+            .bias-diagram-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .bias-strategies-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .bias-mitigation-diagram {
+                padding: 1.5rem;
             }
         }
 
@@ -971,6 +1171,141 @@
                     </div>
                 </div>
             </div>
+
+            <div class="artifact-card">
+                <div class="artifact-header">
+                    <h3>Bias Mitigation & Leadership Commitment</h3>
+                    <span class="artifact-tag">Interactive Framework</span>
+                </div>
+                
+                <div class="artifact-intro">
+                    A comprehensive interactive framework for ensuring fairness, integrity, and inclusivity in construction project management through objective decision-making and transparent processes.
+                </div>
+
+                <!-- Interactive Bias Mitigation Diagram -->
+                <div class="bias-mitigation-diagram">
+                    <div class="bias-diagram-header">
+                        <h4>Leadership Framework for Bias Mitigation</h4>
+                        <p>Click on each strategy below to explore specific implementation methods and best practices for creating equitable project environments.</p>
+                    </div>
+
+                    <div class="bias-diagram-container">
+                        <div class="bias-value-statement">
+                            <h5>Personal Value Statement</h5>
+                            <p>In construction project management, biases in decision-making, resource allocation, and team dynamics can lead to unequal opportunities, reduced efficiency, and compromised project outcomes. I believe in leading projects with integrity, fairness, and inclusivity. My core value is to ensure that every decision—whether related to procurement, staffing, or scheduling—is objective, transparent, and in the best interest of the project and all stakeholders.</p>
+                        </div>
+
+                        <div class="bias-strategies-grid">
+                            <div class="bias-strategy-card" data-strategy="fairness">
+                                <div class="bias-strategy-title">
+                                    <div class="bias-strategy-icon">⚖️</div>
+                                    Implement Fairness in Planning
+                                </div>
+                                <div class="bias-strategy-content">
+                                    <div class="bias-strategy-item">
+                                        <h6>Bias-Reduction Frameworks</h6>
+                                        <p>Apply structured evaluation methods and best practices to reduce bias in contractor selection, change order approvals, and task assignments.</p>
+                                    </div>
+                                    <div class="bias-strategy-item">
+                                        <h6>Stakeholder Engagement</h6>
+                                        <p>Involve diverse stakeholders—including field crews, subcontractors, and community representatives—in project planning to identify and address potential inequities before execution.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bias-strategy-card" data-strategy="data">
+                                <div class="bias-strategy-title">
+                                    <div class="bias-strategy-icon">📊</div>
+                                    Enhance Data-Driven Practices
+                                </div>
+                                <div class="bias-strategy-content">
+                                    <div class="bias-strategy-item">
+                                        <h6>Diverse Vendor Pool</h6>
+                                        <p>Solicit bids from a wide range of contractors and suppliers, including small, minority-owned, and women-owned businesses, to ensure opportunities are accessible to all.</p>
+                                    </div>
+                                    <div class="bias-strategy-item">
+                                        <h6>Performance Audits</h6>
+                                        <p>Regularly review project data—such as safety records, cost performance, and quality inspections—to detect and correct patterns that may reflect bias.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bias-strategy-card" data-strategy="ethics">
+                                <div class="bias-strategy-title">
+                                    <div class="bias-strategy-icon">🛡️</div>
+                                    Promote Ethical Standards
+                                </div>
+                                <div class="bias-strategy-content">
+                                    <div class="bias-strategy-item">
+                                        <h6>Project Ethics Committee</h6>
+                                        <p>Establish an internal review group to evaluate high-impact project decisions, ensuring they align with fairness, safety, and transparency principles.</p>
+                                    </div>
+                                    <div class="bias-strategy-item">
+                                        <h6>Open Communication</h6>
+                                        <p>Clearly communicate the rationale behind procurement, scheduling, and staffing decisions to all relevant parties, building trust and accountability.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bias-strategy-card" data-strategy="culture">
+                                <div class="bias-strategy-title">
+                                    <div class="bias-strategy-icon">🤝</div>
+                                    Foster Inclusive Work Culture
+                                </div>
+                                <div class="bias-strategy-content">
+                                    <div class="bias-strategy-item">
+                                        <h6>Inclusive Hiring</h6>
+                                        <p>Prioritize diversity in recruitment for project teams, both in the field and in management roles, to bring varied perspectives to problem-solving.</p>
+                                    </div>
+                                    <div class="bias-strategy-item">
+                                        <h6>Continuous Learning</h6>
+                                        <p>Provide regular training on bias awareness, cultural competency, and equitable leadership to promote a culture of fairness and mutual respect.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bias-progress-indicator">
+                        <div class="bias-progress-text">Strategies Explored</div>
+                        <div class="bias-progress-bar">
+                            <div class="bias-progress-fill"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="artifact-details">
+                    <div class="artifact-section">
+                        <h4>Framework Overview</h4>
+                        <p>This interactive framework provides construction project managers with practical strategies for identifying, addressing, and preventing bias in project management processes. Each strategy area includes specific implementation methods and measurable outcomes.</p>
+                    </div>
+                    
+                    <div class="artifact-section">
+                        <h4>Implementation Strategy</h4>
+                        <p>The framework emphasizes proactive bias prevention through structured decision-making processes, diverse stakeholder engagement, and transparent communication. Regular audits and continuous learning ensure sustained improvement in project equity.</p>
+                    </div>
+                    
+                    <div class="artifact-section">
+                        <h4>Business Impact</h4>
+                        <p>By implementing these bias mitigation strategies, projects achieve better outcomes through improved team dynamics, enhanced stakeholder satisfaction, reduced conflicts, and more efficient resource allocation. Fair and inclusive practices also strengthen company reputation and competitive positioning.</p>
+                    </div>
+                </div>
+                
+                <div class="artifact-meta">
+                    <div class="meta-item">
+                        <strong>Application:</strong> Construction project management leadership framework
+                    </div>
+                    <div class="meta-item">
+                        <strong>Key Features:</strong> Interactive exploration, practical implementation strategies, progress tracking
+                    </div>
+                    <div class="meta-item">
+                        <strong>Target Outcomes:</strong> Improved project equity, enhanced team performance, stakeholder satisfaction
+                    </div>
+                    <div class="meta-item">
+                        <strong>Innovation:</strong> Web-based interactive framework for bias awareness and mitigation training
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1073,6 +1408,85 @@
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
+        });
+
+        // Bias Mitigation Interactive Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const biasStrategyCards = document.querySelectorAll('.bias-strategy-card');
+            const biasProgressFill = document.querySelector('.bias-progress-fill');
+            let activeCards = new Set();
+            let autoPlayIndex = 0;
+            let autoPlayInterval;
+
+            // Auto-play functionality for bias mitigation diagram
+            function startBiasAutoPlay() {
+                autoPlayInterval = setInterval(() => {
+                    biasStrategyCards.forEach(card => card.classList.remove('active'));
+                    if (biasStrategyCards[autoPlayIndex]) {
+                        biasStrategyCards[autoPlayIndex].classList.add('active');
+                        activeCards.add(autoPlayIndex);
+                        updateBiasProgress();
+                        autoPlayIndex = (autoPlayIndex + 1) % biasStrategyCards.length;
+                    }
+                }, 3000);
+            }
+
+            function stopBiasAutoPlay() {
+                clearInterval(autoPlayInterval);
+            }
+
+            // Manual interaction for bias strategy cards
+            biasStrategyCards.forEach((card, index) => {
+                card.addEventListener('click', function() {
+                    stopBiasAutoPlay();
+                    
+                    if (this.classList.contains('active')) {
+                        this.classList.remove('active');
+                        activeCards.delete(index);
+                    } else {
+                        this.classList.add('active');
+                        activeCards.add(index);
+                    }
+                    
+                    updateBiasProgress();
+                });
+
+                // Hover effects
+                card.addEventListener('mouseenter', function() {
+                    stopBiasAutoPlay();
+                });
+            });
+
+            function updateBiasProgress() {
+                const progress = (activeCards.size / biasStrategyCards.length) * 100;
+                if (biasProgressFill) {
+                    biasProgressFill.style.width = progress + '%';
+                }
+            }
+
+            // Start auto-play after a delay
+            setTimeout(() => {
+                if (biasStrategyCards.length > 0) {
+                    startBiasAutoPlay();
+                }
+            }, 2000);
+
+            // Keyboard navigation for bias mitigation
+            document.addEventListener('keydown', function(e) {
+                if (e.key >= '1' && e.key <= '4') {
+                    const index = parseInt(e.key) - 1;
+                    if (biasStrategyCards[index]) {
+                        stopBiasAutoPlay();
+                        biasStrategyCards[index].click();
+                    }
+                }
+                
+                if (e.key === 'Escape') {
+                    biasStrategyCards.forEach(card => card.classList.remove('active'));
+                    activeCards.clear();
+                    updateBiasProgress();
+                }
+            });
         });
 
         // Initialize particles when page loads
